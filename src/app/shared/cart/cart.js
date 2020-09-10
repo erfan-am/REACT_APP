@@ -15,7 +15,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-export default function RecipeReviewCard({ item }) {
+export default function RecipeReviewCard({ item, image }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -43,12 +43,12 @@ export default function RecipeReviewCard({ item }) {
       />
       <CardMedia
         className={classes.media}
-        image={item.img}
+        image={image.img}
         title="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {item.bio}
+          {image.bio}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -71,7 +71,7 @@ export default function RecipeReviewCard({ item }) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
+          <Typography paragraph>{image.data}</Typography>
         </CardContent>
       </Collapse>
     </Card>

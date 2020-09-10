@@ -11,6 +11,7 @@ import TextField from "@material-ui/core/TextField";
 import { Context } from "../../../contextApi/contextAPI";
 import { withRouter } from "react-router-dom";
 import Cart from "../../shared/cart/cart";
+import GridCart from "../../shared/grid/grid";
 const useStyles = makeStyles((theme) => ({
   container: {
     margin: "4px auto",
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     height: "87vh"
   },
   wrapper: {
-    width: "60%",
+    width: "50%",
     overflowY: "scroll"
   },
   form: {
@@ -101,7 +102,11 @@ const RecipeReviewCard = (props) => {
           ))}
         </div>
         {usersAPI.user ? (
-          <Cart item={usersAPI.user} />
+          <GridCart>
+            {usersAPI.user.images.map((image) => (
+              <Cart item={usersAPI.user} image={image} />
+            ))}
+          </GridCart>
         ) : (
           <h2>there is nothing...</h2>
         )}
