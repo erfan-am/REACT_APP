@@ -14,9 +14,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import GridList from "@material-ui/core/GridList";
 import { Context } from "../../../contextApi/contextAPI";
-
+import GridItem from "../component/GridTitle";
 export default function RecipeReviewCard() {
   const { place } = useContext(Context);
   const classes = useStyles();
@@ -69,27 +68,7 @@ export default function RecipeReviewCard() {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Comments:</Typography>
-          <GridList cols={2} style={{ overflow: "hidden" }}>
-            {place.comments.map((comment) => (
-              <CardHeader
-                key={comment.id}
-                avatar={
-                  <Avatar
-                    aria-label="recipe"
-                    className={classes.img}
-                    src={comment.img}
-                  ></Avatar>
-                }
-                action={
-                  <IconButton aria-label="settings">
-                    <MoreVertIcon />
-                  </IconButton>
-                }
-                title={comment.name}
-                subheader={comment.comment}
-              />
-            ))}
-          </GridList>
+          <GridItem comments={place.comments} classes={classes} />
         </CardContent>
       </Collapse>
     </Card>
