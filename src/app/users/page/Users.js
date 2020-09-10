@@ -9,13 +9,22 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { UserContextApi } from "../../../contextApi/data";
 import TextField from "@material-ui/core/TextField";
 import { Context } from "../../../contextApi/contextAPI";
-import { withRouter, Redirect } from "react-router-dom";
-
+import { withRouter } from "react-router-dom";
+import Cart from "../../shared/cart/cart";
 const useStyles = makeStyles((theme) => ({
   container: {
-    margin: "90px auto",
-    width: "100%",
-    height: "100vh"
+    margin: "4px auto",
+    width: "80%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "hidden",
+    height: "87vh"
+  },
+  wrapper: {
+    width: "60%",
+    overflowY: "scroll"
   },
   form: {
     "& .MuiTextField-root": {
@@ -25,9 +34,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto"
   },
   root: {
-    marginTop: "20px",
-    width: "350px",
-    maxWidth: "500px"
+    marginTop: "10px",
+    width: "350px"
   },
   media: {
     height: 0,
@@ -54,11 +62,9 @@ const RecipeReviewCard = (props) => {
   const classes = useStyles();
   const userClickHandler = (user) => {
     usersAPI.setUserPage(user);
-    // <Redirect to={} />;
-    props.history.push(`/users/${user.id}`);
   };
   return (
-    <Container className={classes.container}>
+    <div style={{ overflow: "hidden" }}>
       <form className={classes.form} noValidate autoComplete="off">
         <div>
           <TextField
@@ -70,28 +76,37 @@ const RecipeReviewCard = (props) => {
           />
         </div>
       </form>
-      {users.map((user) => (
-        <Card className={classes.root} key={user.id}>
-          <CardHeader
-            avatar={
-              <Avatar
-                onClick={() => userClickHandler(user)}
-                aria-label="recipe"
-                src={user.img}
-                className={classes.avatar}
-              ></Avatar>
-            }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title={user.name}
-            subheader={user.bio}
-          />
-        </Card>
-      ))}
-    </Container>
+      <Container className={classes.container}>
+        <div className={classes.wrapper}>
+          {users.map((user) => (
+            <Card className={classes.root} key={user.id}>
+              <CardHeader
+                avatar={
+                  <Avatar
+                    onClick={() => userClickHandler(user)}
+                    aria-label="recipe"
+                    src={user.img}
+                    className={classes.avatar}
+                  ></Avatar>
+                }
+                action={
+                  <IconButton aria-label="settings">
+                    <MoreVertIcon />
+                  </IconButton>
+                }
+                title={user.name}
+                subheader={user.bio}
+              />
+            </Card>
+          ))}
+        </div>
+        {usersAPI.user ? (
+          <Cart item={usersAPI.user} />
+        ) : (
+          <h2>there is nothing...</h2>
+        )}
+      </Container>
+    </div>
   );
 };
 
