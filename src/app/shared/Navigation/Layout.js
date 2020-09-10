@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { makeStyles, useTheme, fade } from "@material-ui/core/styles";
+import { useTheme, makeStyles, fade } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -17,7 +17,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from "react-router-dom";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -116,10 +115,10 @@ const useStyles = makeStyles((theme) => ({
     }
   }
 }));
-
 export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
+
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -179,7 +178,10 @@ export default function PersistentDrawerLeft(props) {
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
+              <React.Fragment>
+                <ChevronLeftIcon />
+                <h4>LIKE ME</h4>
+              </React.Fragment>
             ) : (
               <ChevronRightIcon />
             )}

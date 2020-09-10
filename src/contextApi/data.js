@@ -76,4 +76,80 @@ const DUMY_IMAGES = [
     ]
   }
 ];
+const USER = [
+  {
+    name: "erfan",
+    id: "1",
+    email: "Erfanam582@gmail.com",
+    job: "developer",
+    img:
+      "https://19d3782b340d3615223a-8b8ea69741e8d4c89e10e075b4ccc0a2.ssl.cf3.rackcdn.com/6158_t_f907d6c2-da03-4834-aff9-dd23f9660d85.jpg",
+    images: [
+      {
+        place: "russa",
+        img: "",
+        bio: "hooooow i am?",
+        data: new Date().getFullYear()
+      },
+
+      {
+        place: "california",
+        img: "",
+        bio: "the people are very kind ):",
+        data: new Date().getFullYear()
+      }
+    ],
+    bio: "a person whoe  try so hard"
+  },
+  {
+    name: "faranak",
+    id: "2",
+    email: "faranak@gmail.com",
+    job: "teacher",
+    img:
+      "https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1080529720%2F960x0.jpg%3Ffit%3Dscale",
+    images: [
+      {
+        place: "island",
+        img: "",
+        bio: "good travel with wife",
+        data: new Date().getFullYear()
+      },
+
+      {
+        place: "ingland",
+        img: "",
+        bio: "gong to dogs",
+        data: new Date().getFullYear()
+      }
+    ],
+    bio: "a dauhthrt with beautiful eyes"
+  },
+
+  {
+    name: "mohadese",
+    id: "3",
+    email: "mohadese@gmail.com",
+    job: "doctor",
+    img:
+      "https://i.pinimg.com/originals/13/c8/2f/13c82f246b0cf8313b4b030a1c2d2b56.jpg",
+    images: [
+      {
+        place: "iran",
+        img: "",
+        bio: "takhte jamshid is extroradinary",
+        data: new Date().getFullYear()
+      },
+
+      {
+        place: "french",
+        img: "",
+        bio: "weather is very gooood",
+        data: new Date().getFullYear()
+      }
+    ],
+    bio: "best dentist in the world"
+  }
+];
 export const ContextAPI = createContext(DUMY_IMAGES);
+export const UserContextApi = createContext(USER);
