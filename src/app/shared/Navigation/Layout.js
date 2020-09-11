@@ -196,11 +196,6 @@ export default function PersistentDrawerLeft(props) {
           </ListItem>
           <ListItem button>
             <ListItemText>
-              <Link to="/aboutus">About us</Link>
-            </ListItemText>
-          </ListItem>
-          <ListItem button>
-            <ListItemText>
               <Link to="/users">Users</Link>
             </ListItemText>
           </ListItem>
