@@ -1,6 +1,7 @@
 <h1>Simple static app with React.js</h1>
     <h2>features</h2>
     <ol>
+        <li>React</li>
         <li>Context-API</li>
         <li>Material-ui</li>
     </ol>
@@ -18,6 +19,7 @@
      <h2>Documents</h2>
     <ol>
         <li><a href="https://reactjs.org/docs/context.html">Learn Context-API</a></li>
+        <li><a href="https://material-ui.com/">Learn Material-ui</a></li>
     </ol>
     <hr>
     
